@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Setting</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/account_setting.css">
+    <style>
+        body {
+            display: flex; /* Use flexbox for layout */
+            background-color: #e7e6e6; /* Bottom Left (Grayish White) */
+        }
+    
+        .sidebar {
+            min-width: 250px; /* Fixed width for sidebar */
+            height: 100vh; /* Full height */
+            background-color: #e7cebc;; /* Top Left (Green 1) */
+            position: fixed; /* Fixed position */
+            top: 0;
+            left: 0;
+            padding: 15px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+        }
+    
+        .logo-section {
+            background-color: #032c01; /* Top Right (Green 2) */ 
+            padding: 15px; /* Padding for the logo section */
+            border-radius: 8px; /* Rounded corners for the logo section */
+            margin-bottom: 15px; /* Margin to separate from other elements */
+        }
+    
+        .content-area {
+            margin-left: 250px; /* Leave space for the sidebar */
+            padding: 15px; /* Padding for content */
+            width: calc(100% - 250px); /* Adjust width according to sidebar */
+            transition: margin-left 0.3s; /* Smooth transition */
+            background-color: #e7e6e6; /* Middle Left (Beige) */
+        }
+    
+        @media (max-width: 768px) {
+            .sidebar {
+                position: absolute; /* Change position for smaller screens */
+                transform: translateX(-100%); /* Hide sidebar off-screen */
+                transition: transform 0.3s; /* Smooth transition */
+            }
+    
+            .sidebar.visible {
+                transform: translateX(0); /* Show sidebar */
+            }
+    
+            .content-area {
+                margin-left: 0; /* No margin on small screens */
+                width: 100%; /* Full width */
+            }
+        }
+    
+        .toggle-btn {
+            display: none; /* Hidden by default */
+        }
+    
+        @media (max-width: 768px) {
+            .toggle-btn {
+                display: block; /* Show on small screens */
+            }
+        }
+    
+        .close-btn {
+            cursor: pointer;
+            font-size: 1.5rem; /* Adjust font size */
+            color: #fff; /* Close icon color for better visibility */
+            position: absolute; /* Position absolute to the sidebar */
+            top: 10px; /* Distance from top */
+            right: 10px; /* Distance from right */
+            border: none; /* Remove border */
+            background: none; /* Remove background */
+        }
+    
+        .btn-success {
+            background-color: #f6b468; /* Middle Right (Orange 1) */
+            border-color: #f6b468; /* Same color for border */
+        }
+    
+        .btn-success:hover {
+            background-color: #bc6c25; /* Bottom Right (Orange 2) */
+            border-color: #bc6c25; /* Same color for border */
+        }
+    </style>
+    
+    
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <button class="close-btn d-block d-md-none" id="closeSidebar">
+            <i class="bi bi-x-circle"></i>
+        </button>
+        
+        <div class="logo-section text-center mb-3">
+            <div class="logo"></div>
+            <!-- <p class="fw-bold">Logo Here</p> -->
+        </div>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" href="account_setting.html"><i class="bi bi-person-circle"></i> Account Setting</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="order.html"><i class="bi bi-box-seam"></i> Order Status</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-danger" href="#"><i class="bi bi-box-arrow-right"></i> Logout</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-area">
+       
+        <div class="header d-flex justify-content-between align-items-center">
+            <button class="btn btn-primary toggle-btn" id="toggleSidebar"><i class="bi bi-list"></i></button>&nbsp;&nbsp;
+            <h2 class="mb-0">Account Setting</h2>
+            <div class="user-info d-flex align-items-center">
+                <span class="me-2">Cardo Dalisay</span>
+                <div class="profile-img"></div>
+            </div>
+        </div>
+        <div class="content p-4">
+            <form onsubmit="return false;"> <!-- Prevent form submission for demonstration -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" class="form-control custom-input" id="firstName" value="Cardo" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" class="form-control custom-input" id="lastName" value="Dalisay" readonly>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Complete Address</label>
+                    <input type="text" class="form-control custom-input" id="address" value="Blk B Lot 3 St. Joseph Homes Poblacion II, Marilao, Bulacan" readonly>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="phoneNumber" class="form-label">Phone Number</label>
+                        <input type="text" class="form-control custom-input" id="phoneNumber" value="09451236987" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control custom-input" id="email" value="cardodalisay@gmail.com" readonly>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editModal">Edit Profile</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="editFirstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="editFirstName" value="Cardo">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="editLastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="editLastName" value="Dalisay">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editAddress" class="form-label">Complete Address</label>
+                            <input type="text" class="form-control" id="editAddress" value="Blk B Lot 3 St. Joseph Homes Poblacion II, Marilao, Bulacan">
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="editPhoneNumber" class="form-label">Phone Number</label>
+                                <input type="text" class="form-control" id="editPhoneNumber" value="09451236987">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="editEmail" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="editEmail" value="cardodalisay@gmail.com">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="saveChanges()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Function to toggle the sidebar visibility
+        document.getElementById('toggleSidebar').addEventListener('click', function () {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('visible');
+            const contentArea = document.querySelector('.content-area');
+            contentArea.classList.toggle('collapsed');
+        });
+
+        // Function to close the sidebar
+        document.getElementById('closeSidebar').addEventListener('click', function () {
+            const sidebar = document.querySelector('.sidebar');
+            const contentArea = document.querySelector('.content-area');
+            sidebar.classList.remove('visible');
+            contentArea.classList.add('collapsed');
+        });
+
+        function saveChanges() {
+            // Implement save changes functionality
+            alert('Changes saved!');
+            // Close the modal after saving
+            const modal = bootstrap.Modal.getInstance(document.getElementById('editModal'));
+            modal.hide();
+        }
+    </script>
+</body>
+
+</html>
