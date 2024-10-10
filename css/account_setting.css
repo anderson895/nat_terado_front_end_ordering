@@ -39,13 +39,13 @@ body {
 }
 
 .header {
-  background-color: #004d00;
+  background-color: #004d00; /* Header background */
   color: white;
   padding: 15px;
-  border-radius: 8px 8px 0 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-radius: 8px; /* Rounded corners for header */
 }
 
 .profile-img {
