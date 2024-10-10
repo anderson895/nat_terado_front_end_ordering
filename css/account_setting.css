@@ -41,7 +41,7 @@ body {
 }
 
 .header {
-  background-color: #004d00;
+  background-color: #f6b468; /* Header background */
   color: white;
   padding: 15px;
   border-radius: 8px 8px 0 0;
