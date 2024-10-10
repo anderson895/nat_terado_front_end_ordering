@@ -80,5 +80,5 @@ document.getElementById('closeSidebar').addEventListener('click', function () {
 // Handle the "Yes" button click in the modal
 document.getElementById('confirm-logout').addEventListener('click', function() {
   // Perform the logout action here, e.g., redirect to the logout URL
-  window.location.href = 'logout-url'; // Replace with actual logout URL
+  window.location.href = 'login.html'; // Replace with actual logout URL
 });
