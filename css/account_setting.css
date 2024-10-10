@@ -25,8 +25,10 @@ body {
 .logo {
   width: 80px; /* Adjusted width for logo */
   height: 80px; /* Adjusted height for logo */
-  background-color: #c4c4c4;
-  border-radius: 50%;
+  background-image: url('../assets/cropshop.jpg'); /* Replace with the actual image URL */
+  background-size: cover; /* Ensures the image covers the entire logo */
+  background-position: center; /* Centers the image */
+  border-radius: 50%; /* Makes the logo circular */
   margin: 20px auto; /* Centering */
 }
 
