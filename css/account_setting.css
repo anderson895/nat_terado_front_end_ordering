@@ -1,13 +1,13 @@
 /* General Styling */
 body {
   display: flex; /* Use flexbox for layout */
-  background-color: #e7e6e6; /* Bottom Left (Grayish White) */
+  background-color: #e7cebc; /* Bottom Left (Grayish White) */
 }
 
 .sidebar {
   min-height: 100vh;
   min-width: 250px; /* Fixed width for sidebar */
-  background-color: #e7cebc; /* Top Left (Green 1) */
+  background-color: #f6b468; /* Top Left (Green 1) */
   position: fixed; /* Fixed position */
   top: 0;
   left: 0;
@@ -37,7 +37,7 @@ body {
   padding: 20px; /* Padding for content */
   width: calc(100% - 250px); /* Adjust width according to sidebar */
   transition: margin-left 0.3s; /* Smooth transition */
-  background-color: #e7e6e6; /* Middle Left (Beige) */
+  background-color: #e7cebc; /* Middle Left (Beige) */
 }
 
 .header {
