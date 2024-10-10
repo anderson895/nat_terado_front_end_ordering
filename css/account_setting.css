@@ -46,7 +46,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 8px; /* Rounded corners for header */
 }
 
 .profile-img {
